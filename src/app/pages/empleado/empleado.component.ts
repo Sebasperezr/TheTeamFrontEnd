@@ -8,9 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EmpleadoComponent implements OnInit {
 
-    isLinear = false;
-    firstFormGroup: FormGroup;
-    secondFormGroup: FormGroup;
+    esLineal = false;
+    primerFormulario: FormGroup;
+    segundoFormulario: FormGroup;
     numerosArbol = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
 
     imagenEmociones = './assets/images/arbol.png';
@@ -24,14 +24,26 @@ export class EmpleadoComponent implements OnInit {
     imagenMente7 = './assets/images/mente7.png';
     imagenMente8 = './assets/images/mente8.png';
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private constructorFormulario: FormBuilder) { }
 
     ngOnInit() {
-        this.firstFormGroup = this.formBuilder.group({
-            firstCtrl: ['', Validators.required]
+        this.primerFormulario = this.constructorFormulario.group({
+            primerControl: ['', Validators.required]
         });
-        this.secondFormGroup = this.formBuilder.group({
-            secondCtrl: ['', Validators.required]
+        this.segundoFormulario = this.constructorFormulario.group({
+            pregunta1: ['', Validators.required],
+            pregunta2: ['', Validators.required],
+            pregunta3: ['', Validators.required],
+            pregunta4: ['', Validators.required],
+            pregunta5: ['', Validators.required],
+            pregunta6: ['', Validators.required],
+            pregunta7: ['', Validators.required],
+            pregunta8: ['', Validators.required],
+            pregunta9: ['', Validators.required]
         });
+    }
+
+    enviarFormulario() {
+        console.log(this.primerFormulario, this.segundoFormulario);
     }
 }
