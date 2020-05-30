@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/pwa-okworkman",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
