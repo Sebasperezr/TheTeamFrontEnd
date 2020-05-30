@@ -253,7 +253,7 @@
           </div>
         </div>
         <div>
-          <button mat-button matStepperPrevious class="btn btn-primary">Anterior</button>
+          <button mat-button matStepperPrevious class="btn btn-primary">Anterior</button>&nbsp;
           <button mat-button matStepperNext class="btn btn-primary">Siguiente</button>
         </div>
       </form>
@@ -269,9 +269,9 @@
       </div>
       <label for="validatedCustomFile">Ó puedes grabarlo aquí mismo presionando el botón grabar</label>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperPrevious class="btn btn-primary">Anterior</button>&nbsp;
         <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-        <button mat-button (click)="enviarFormulario()">Enviar Formulario</button>
+        <button mat-button (click)="enviarFormulario()" class="btn btn-primary">Enviar Formulario</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
