@@ -71,6 +71,9 @@ a:hover {
   color: #125699;
 }
 
+.container {
+    margin-top: 170px;
+}
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
@@ -101,3 +104,6 @@ a:hover {
     visibility: hidden;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

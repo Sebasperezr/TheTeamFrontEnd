@@ -1,1 +1,261 @@
-<p>empleado works!</p>
+<div class="container">
+  <mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
+    <!-- Primer step -->
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Emociones</ng-template>
+        <div class="imagenes-emociones">
+          <img [src]="imagenEmociones" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Elija un número de acuerdo a como se identifique en el grafico con su
+            posición actual en la empresa</label>
+          <select class="form-control" id="exampleInputPassword1">
+            <option value="{{item}}" *ngFor="let item of numerosArbol">{{item}}</option>
+          </select>
+        </div>
+        <div>
+          <button mat-button matStepperNext class="btn btn-primary">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Segundo step -->
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Mente</ng-template>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              El rostro
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Las manzanas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              La persona sentada
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente1" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Una ballena
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Una persona practicando surf
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              La luna y la luz sobre el agua
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente2" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Labios
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Arboles
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Raíces
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente3" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Precipicio
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Gato
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Rostro
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente4" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿A qué se te asemeja la imagen?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Personas
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Payasos
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Animales
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente5" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Barco
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Cocodrilo
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente6" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿A qué se te asemeja la imagen?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Perfiles femeninos
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Perfiles masculinos
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Animales
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente7" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿Que observaste primero?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Chica
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Chico
+            </label>
+          </div>
+        </div>
+        <div class="imagenes-emociones">
+          <img [src]="imagenMente8" class="d-block w-100" alt="arbol">
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1">¿A qué se te asemeja la imagen?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+              checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Animales caminando
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Animales luchando
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Nada
+            </label>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious class="btn btn-primary">Anterior</button>
+          <button mat-button matStepperNext class="btn btn-primary">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <!-- Tercer step -->
+    <mat-step>
+      <ng-template matStepLabel>Estados de ánimo</ng-template>
+      <label for="validatedCustomFile">Cargue un archivo de audio en formato WAV, en el que relates como te sentiste el
+        día de hoy en el trabajo</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+        <label class="custom-file-label" for="validatedCustomFile">Elija un archivo...</label>
+      </div>
+      <label for="validatedCustomFile">Ó puedes grabarlo aquí mismo presionando el botón grabar</label>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
