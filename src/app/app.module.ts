@@ -14,12 +14,16 @@ import { EmpleadoComponent } from './pages/empleado/empleado.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { PsicologoComponent } from './pages/psicologo/psicologo.component';
+import { GerenteComponent } from './pages/gerente/gerente.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         EmpleadoComponent,
-        InicioComponent
+        InicioComponent,
+        PsicologoComponent,
+        GerenteComponent
     ],
     imports: [
         BrowserModule,

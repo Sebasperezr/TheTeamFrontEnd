@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { EmpleadoComponent } from './pages/empleado/empleado.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { EmpleadoComponent } from './pages/empleado/empleado.component';
+import { GerenteComponent } from './pages/gerente/gerente.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { PsicologoComponent } from './pages/psicologo/psicologo.component';
 
 const routes: Routes = [
     {
@@ -12,6 +14,14 @@ const routes: Routes = [
     {
         path: 'empleado',
         component: EmpleadoComponent
+    },
+    {
+        path: 'psicologo',
+        component: PsicologoComponent
+    },
+    {
+        path: 'gerente',
+        component: GerenteComponent
     },
     {
         path: '',
