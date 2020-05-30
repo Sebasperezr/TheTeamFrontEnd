@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  margin: 170px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  .card {
+    width: 18rem
+  }
+}
