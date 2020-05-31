@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { GrabadoraAudioService } from 'src/app/providers/grabadora-audio.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-paso-a-paso',
@@ -88,7 +90,36 @@ export class PasoAPasoComponent implements OnInit {
      */
     imagenMente8 = './assets/images/mente8.png';
 
-    constructor(private constructorFormulario: FormBuilder) { }
+    /**
+     * Estado para saber si está grabando o no
+     */
+    estaGrabando = false;
+
+    /**
+     * Tiempo de grabacion
+     */
+    tiempoGrabacion: string;
+
+    /**
+     * Url de la grabacion
+     */
+    blobUrl: SafeUrl;
+
+    constructor(
+        private constructorFormulario: FormBuilder,
+        private grabadoraAudioService: GrabadoraAudioService,
+        private sanitizer: DomSanitizer
+    ) {
+        this.grabadoraAudioService.recordingFailed().subscribe(() => {
+            this.estaGrabando = false;
+        });
+        this.grabadoraAudioService.getRecordedTime().subscribe((time) => {
+            this.tiempoGrabacion = time;
+        });
+        this.grabadoraAudioService.getRecordedBlob().subscribe((data) => {
+            this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.blob));
+        });
+    }
 
     ngOnInit() {
         if (!this.esRespuestas) {
@@ -127,6 +158,53 @@ export class PasoAPasoComponent implements OnInit {
             pregunta9: this.primerFormulario.controls.pregunta9.value
         };
         this.formularioAEnviar.emit(controls);
+    }
+
+    /**
+     * Metodo para envio de formulario con los datos adquiridos de la encuesta y el archivo de audio
+     */
+    iniciarGrabacion() {
+        if (!this.estaGrabando) {
+            this.estaGrabando = true;
+            this.grabadoraAudioService.startRecording();
+            let n = 0;
+            const that = this;
+            window.setInterval(() => {
+                if (n === 10) {
+                    that.grabadoraAudioService.stopRecording();
+                    that.estaGrabando = false;
+                }
+                n++;
+            },
+                1000);
+        }
+    }
+
+    /**
+     * Aborta la grabacion de audio
+     */
+    abortarGrabacion() {
+        if (this.estaGrabando) {
+            this.estaGrabando = false;
+            this.grabadoraAudioService.abortRecording();
+        }
+    }
+
+    /**
+     * Detiene la grabacion de audio
+     */
+    detenerGrabacion() {
+        if (this.estaGrabando) {
+            this.grabadoraAudioService.stopRecording();
+            this.estaGrabando = false;
+        }
+    }
+
+    /**
+     * Limpia o reinicia los datos grabados
+     */
+    limpiarDatosGrabados() {
+        this.blobUrl = null;
     }
 
 }

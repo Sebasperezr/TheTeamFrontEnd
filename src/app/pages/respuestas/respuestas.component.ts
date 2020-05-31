@@ -31,18 +31,18 @@ export class RespuestasComponent implements OnInit {
         this.respuestasService.obtenerRespuestas()
             .subscribe(respuestas => {
                 this.primerFormulario = this.constructorFormulario.group({
-                    primerControl: [respuestas.pregunta, Validators.required]
+                    primerControl: [{ value: respuestas.pregunta, disabled: true }, Validators.required]
                 });
                 this.segundoFormulario = this.constructorFormulario.group({
-                    pregunta1: [respuestas.pregunta1, Validators.required],
-                    pregunta2: [respuestas.pregunta2, Validators.required],
-                    pregunta3: [respuestas.pregunta3, Validators.required],
-                    pregunta4: [respuestas.pregunta4, Validators.required],
-                    pregunta5: [respuestas.pregunta5, Validators.required],
-                    pregunta6: [respuestas.pregunta6, Validators.required],
-                    pregunta7: [respuestas.pregunta7, Validators.required],
-                    pregunta8: [respuestas.pregunta8, Validators.required],
-                    pregunta9: [respuestas.pregunta9, Validators.required]
+                    pregunta1: [{ value: respuestas.pregunta1, disabled: true }, Validators.required],
+                    pregunta2: [{ value: respuestas.pregunta2, disabled: true }, Validators.required],
+                    pregunta3: [{ value: respuestas.pregunta3, disabled: true }, Validators.required],
+                    pregunta4: [{ value: respuestas.pregunta4, disabled: true }, Validators.required],
+                    pregunta5: [{ value: respuestas.pregunta5, disabled: true }, Validators.required],
+                    pregunta6: [{ value: respuestas.pregunta6, disabled: true }, Validators.required],
+                    pregunta7: [{ value: respuestas.pregunta7, disabled: true }, Validators.required],
+                    pregunta8: [{ value: respuestas.pregunta8, disabled: true }, Validators.required],
+                    pregunta9: [{ value: respuestas.pregunta9, disabled: true }, Validators.required]
                 });
             });
     }
