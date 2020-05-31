@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { PsicologoComponent } from './pages/psicologo/psicologo.component';
 import { GerenteComponent } from './pages/gerente/gerente.component';
+import { RespuestasComponent } from './pages/respuestas/respuestas.component';
+import { GrabadoraAudioService } from './providers/grabadora-audio.service';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,8 @@ import { GerenteComponent } from './pages/gerente/gerente.component';
         EmpleadoComponent,
         InicioComponent,
         PsicologoComponent,
-        GerenteComponent
+        GerenteComponent,
+        RespuestasComponent
     ],
     imports: [
         BrowserModule,
@@ -39,7 +42,7 @@ import { GerenteComponent } from './pages/gerente/gerente.component';
         MatInputModule,
         MatButtonModule
     ],
-    providers: [],
+    providers: [ GrabadoraAudioService ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

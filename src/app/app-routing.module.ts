@@ -5,6 +5,7 @@ import { EmpleadoComponent } from './pages/empleado/empleado.component';
 import { GerenteComponent } from './pages/gerente/gerente.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PsicologoComponent } from './pages/psicologo/psicologo.component';
+import { RespuestasComponent } from './pages/respuestas/respuestas.component';
 
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
         path: 'psicologo',
         component: PsicologoComponent
+    },
+    {
+        path: 'respuestas/:id',
+        component: RespuestasComponent
     },
     {
         path: 'gerente',
