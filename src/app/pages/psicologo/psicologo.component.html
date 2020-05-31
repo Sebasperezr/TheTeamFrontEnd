@@ -13,7 +13,7 @@
             <option value="{{item}}" *ngFor="let item of estadosDeAnimo">{{item}}</option>
           </select>
         </div>
-        <button type="button" class="btn btn-primary" [routerLink]="[ '/respuestas', item.id ]">Ver respuestas</button>
+        <button type="button" class="btn btn-dark" [routerLink]="[ '/respuestas', item.id ]">Ver respuestas</button>
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
