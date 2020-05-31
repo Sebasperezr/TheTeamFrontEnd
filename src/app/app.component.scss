@@ -4,4 +4,32 @@
     width: 100%;
     text-align-last: center;
   }
+
+}
+
+.toolbargradient{
+  
+    height:100px;
+    width:1348px;
+    border-radius: 0 0 100px 100px;
+    background: linear-gradient(to right, rgb(71, 4, 71) 0%, rgb(248, 183, 5) 100%) !important;
+}
+
+.contentLogo{
+  align-content:right;
+  padding: 10px;
+  margin: 10px; 
+  border: 2px solid black; 
+  float: left; 
+  margin-left: 100px;
+  width: 280px;
+}
+
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 250%;
+  max-width: 250px;
+  height: auto;
 }

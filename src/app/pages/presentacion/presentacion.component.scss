@@ -1,0 +1,34 @@
+.circuloGrande {
+    width: 600px;
+    height: 600px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(71, 4, 71) 0%, rgb(248, 183, 5) 100%) !important;
+    margin-left: 250px;
+    margin-right: auto;
+    
+  }
+
+  .circuloPequeno {
+    width: 550px;
+    height: 550px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid black; 
+    margin-left: 26px;
+    margin-right: auto;
+   
+  }
+
+  .texto{
+      color: black;
+  }
+
+  .botonInicio{
+    margin-top: 40px;
+}
+
+
+  
