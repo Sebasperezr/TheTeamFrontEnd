@@ -22,10 +22,11 @@ export class EmpleadoService {
      */
     enviarFormulario(respuestaFormulario: any, key: any) {
         const futuro = new Date();
+        const futuroSinISO = new Date(futuro.setDate(futuro.getDate() + 30));
         const body = {
             fecha: new Date(),
             idUsuario: Math.round(Math.random() * 50),
-            fecha_Baja: new Date(futuro.setDate(futuro.getDate() + 30)).toString(),
+            fecha_Baja: futuroSinISO.toISOString(),
             idActividad: key,
             idRespuesta: respuestaFormulario,
             idResultado: ''
