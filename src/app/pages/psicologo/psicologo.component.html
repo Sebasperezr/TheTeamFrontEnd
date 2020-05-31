@@ -7,6 +7,12 @@
           <input type="text" class="form-control" id="recomendacion" aria-describedby="recomendacion"
             [(ngModel)]="item.descripcion">
         </div>
+        <label for="primerControl">Elija un estado de ánimo para el empleado según su análisis</label>
+        <div class="form-group">
+          <select class="form-control" id="primerControl">
+            <option value="{{item}}" *ngFor="let item of estadosDeAnimo">{{item}}</option>
+          </select>
+        </div>
         <button type="button" class="btn btn-primary" [routerLink]="[ '/respuestas', item.id ]">Ver respuestas</button>
       </ng-template>
     </ngb-panel>

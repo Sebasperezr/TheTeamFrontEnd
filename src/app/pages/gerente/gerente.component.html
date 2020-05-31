@@ -1,8 +1,8 @@
 <div class="container">
-  <div style="display: block;">
-    <canvas baseChart width="500" height="500" [datasets]="lineChartData" [labels]="lineChartLabels"
+  <div class="col-12 contenedor-grafico">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
       [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
-      [plugins]="lineChartPlugins">
+      [plugins]="lineChartPlugins" (chartClick)="chartClicked($event)">
     </canvas>
   </div>
   <ngb-accordion [closeOthers]="true">

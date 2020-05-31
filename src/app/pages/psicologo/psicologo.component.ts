@@ -20,6 +20,12 @@ export class PsicologoComponent implements OnInit {
         },
     ];
 
+    estadosDeAnimo = [
+        'Distímia',
+        'Hipertímia',
+        'Eutímia'
+    ];
+
     constructor() { }
 
     ngOnInit(): void {
