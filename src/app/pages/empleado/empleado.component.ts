@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EmpleadoService } from 'src/app/providers/empleado.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-empleado',
@@ -19,7 +21,9 @@ export class EmpleadoComponent implements OnInit {
     segundoFormulario: FormGroup;
 
     constructor(
-        private constructorFormulario: FormBuilder
+        private constructorFormulario: FormBuilder,
+        private empleadoService: EmpleadoService,
+        private router: Router
     ) {
     }
 
@@ -41,7 +45,21 @@ export class EmpleadoComponent implements OnInit {
 
     }
 
-    enviarFormulario() {
-        console.log(this.primerFormulario, this.segundoFormulario);
+    enviarFormulario(evento: any) {
+        for (const key in evento) {
+            if (evento.hasOwnProperty(key)) {
+                if (key === 'audio') {
+                    // this.empleadoService.enviarFormulario()
+                } else {
+                    const respuestaFormulario = evento[key];
+                    this.empleadoService.enviarFormulario(respuestaFormulario, key)
+                        .subscribe(respuesta => {
+                            console.log(respuesta);
+                        });
+                }
+
+            }
+        }
+        this.router.navigate(['/inicio']);
     }
 }

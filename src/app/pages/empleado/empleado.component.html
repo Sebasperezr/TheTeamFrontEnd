@@ -1,4 +1,5 @@
 <div class="container">
-  <app-paso-a-paso [primerFormulario]="primerFormulario" [segundoFormulario]="segundoFormulario">
+  <app-paso-a-paso [primerFormulario]="primerFormulario" [segundoFormulario]="segundoFormulario"
+    (formularioAEnviar)="enviarFormulario($event)">
   </app-paso-a-paso>
 </div>

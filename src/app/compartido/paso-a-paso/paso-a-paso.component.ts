@@ -144,18 +144,18 @@ export class PasoAPasoComponent implements OnInit {
      * Metodo para envio de formulario con los datos adquiridos de la encuesta y el archivo de audio
      */
     enviarFormulario() {
-        console.log(this.primerFormulario, this.segundoFormulario);
         const controls = {
             pregunta: this.primerFormulario.controls.primerControl.value,
-            pregunta1: this.primerFormulario.controls.pregunta1.value,
-            pregunta2: this.primerFormulario.controls.pregunta2.value,
-            pregunta3: this.primerFormulario.controls.pregunta3.value,
-            pregunta4: this.primerFormulario.controls.pregunta4.value,
-            pregunta5: this.primerFormulario.controls.pregunta5.value,
-            pregunta6: this.primerFormulario.controls.pregunta6.value,
-            pregunta7: this.primerFormulario.controls.pregunta7.value,
-            pregunta8: this.primerFormulario.controls.pregunta8.value,
-            pregunta9: this.primerFormulario.controls.pregunta9.value
+            pregunta1: this.segundoFormulario.controls.pregunta1.value,
+            pregunta2: this.segundoFormulario.controls.pregunta2.value,
+            pregunta3: this.segundoFormulario.controls.pregunta3.value,
+            pregunta4: this.segundoFormulario.controls.pregunta4.value,
+            pregunta5: this.segundoFormulario.controls.pregunta5.value,
+            pregunta6: this.segundoFormulario.controls.pregunta6.value,
+            pregunta7: this.segundoFormulario.controls.pregunta7.value,
+            pregunta8: this.segundoFormulario.controls.pregunta8.value,
+            pregunta9: this.segundoFormulario.controls.pregunta9.value,
+            audio: this.blobUrl
         };
         this.formularioAEnviar.emit(controls);
     }

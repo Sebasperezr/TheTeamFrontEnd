@@ -24,6 +24,7 @@ import { PasoAPasoComponent } from './compartido/paso-a-paso/paso-a-paso.compone
 import { RespuestasService } from './providers/respuestas.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PresentacionComponent } from './pages/presentacion/presentacion.component';
+import { EmpleadoService } from './providers/empleado.service';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,11 @@ import { PresentacionComponent } from './pages/presentacion/presentacion.compone
         MatIconModule,
         ChartsModule
     ],
-    providers: [ GrabadoraAudioService, RespuestasService ],
+    providers: [
+        GrabadoraAudioService,
+        RespuestasService,
+        EmpleadoService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
