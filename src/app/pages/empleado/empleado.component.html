@@ -274,7 +274,7 @@
         </button>
         <div *ngIf="estaGrabando && !blobUrl"> {{tiempoGrabacion}} </div>
         <audio *ngIf="!estaGrabando && blobUrl"  controls>
-          <source [src]="blobUrl" type="audio/webm">
+          <source [src]="blobUrl" type="audio/mpeg">
         </audio>
       </div>
       <div>

@@ -1,1 +1,18 @@
-<p>gerente works!</p>
+<div class="container">
+  <div style="display: block;">
+    <canvas baseChart width="500" height="500" [datasets]="lineChartData" [labels]="lineChartLabels"
+      [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+      [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <ngb-accordion [closeOthers]="true">
+    <ngb-panel *ngFor="let item of datosEmpleados; let i=index" id="static-{{i}}" [title]="item.titulo">
+      <ng-template ngbPanelContent>
+        <label for="recomendacion">Recomendación:</label>
+        <div class="form-group">
+          <p>{{item.descripcion}}</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

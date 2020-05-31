@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,10 @@ import { GerenteComponent } from './pages/gerente/gerente.component';
 import { RespuestasComponent } from './pages/respuestas/respuestas.component';
 import { GrabadoraAudioService } from './providers/grabadora-audio.service';
 import { MatIconModule } from '@angular/material/icon';
+import { PasoAPasoComponent } from './compartido/paso-a-paso/paso-a-paso.component';
+import { RespuestasService } from './providers/respuestas.service';
+import { HttpClientModule } from '@angular/common/http';
+import { PresentacionComponent } from './pages/presentacion/presentacion.component';
 
 @NgModule({
     declarations: [
@@ -27,10 +32,13 @@ import { MatIconModule } from '@angular/material/icon';
         InicioComponent,
         PsicologoComponent,
         GerenteComponent,
-        RespuestasComponent
+        RespuestasComponent,
+        PasoAPasoComponent,
+        PresentacionComponent
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -42,9 +50,10 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        ChartsModule
     ],
-    providers: [ GrabadoraAudioService ],
+    providers: [ GrabadoraAudioService, RespuestasService ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

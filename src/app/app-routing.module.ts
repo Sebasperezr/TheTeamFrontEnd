@@ -6,8 +6,13 @@ import { GerenteComponent } from './pages/gerente/gerente.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PsicologoComponent } from './pages/psicologo/psicologo.component';
 import { RespuestasComponent } from './pages/respuestas/respuestas.component';
+import { PresentacionComponent } from './pages/presentacion/presentacion.component';
 
 const routes: Routes = [
+    {
+        path: 'presentacion',
+        component: PresentacionComponent
+    },
     {
         path: 'inicio',
         component: InicioComponent
@@ -30,12 +35,12 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'inicio',
+        redirectTo: 'presentacion',
         pathMatch: 'full'
     },
     {
         path: '**',
-        redirectTo: 'inicio',
+        redirectTo: 'presentacion',
         pathMatch: 'full'
     },
 ];

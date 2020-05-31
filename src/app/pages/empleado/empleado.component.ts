@@ -84,20 +84,22 @@ export class EmpleadoComponent implements OnInit {
     tiempoGrabacion;
     blobUrl;
 
-    constructor(private constructorFormulario: FormBuilder,
-        private grabadoraAudioService: GrabadoraAudioService, 
-        private sanitizer: DomSanitizer) {
-            
+    constructor(
+        private constructorFormulario: FormBuilder,
+        private grabadoraAudioService: GrabadoraAudioService,
+        private sanitizer: DomSanitizer
+    ) {
+
         this.grabadoraAudioService.recordingFailed().subscribe(() => {
-        this.estaGrabando = false;
+            this.estaGrabando = false;
         });
         this.grabadoraAudioService.getRecordedTime().subscribe((time) => {
-        this.tiempoGrabacion = time;
+            this.tiempoGrabacion = time;
         });
         this.grabadoraAudioService.getRecordedBlob().subscribe((data) => {
-        this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.blob));
+            this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.blob));
         });
-     }
+    }
 
     ngOnInit() {
         this.primerFormulario = this.constructorFormulario.group({
@@ -123,35 +125,35 @@ export class EmpleadoComponent implements OnInit {
 
     startRecording() {
         if (!this.estaGrabando) {
-          this.estaGrabando = true;
-          this.grabadoraAudioService.startRecording();
-          let n = 0;
-          const that = this;
-          window.setInterval(function() {
-            if (n === 120) {
-              that.grabadoraAudioService.stopRecording();
-              that.estaGrabando = false;
-            }
-            n++;
-          },
-          1000);
+            this.estaGrabando = true;
+            this.grabadoraAudioService.startRecording();
+            let n = 0;
+            const that = this;
+            window.setInterval(() => {
+                if (n === 10) {
+                    that.grabadoraAudioService.stopRecording();
+                    that.estaGrabando = false;
+                }
+                n++;
+            },
+                1000);
         }
-      }
+    }
     abortRecording() {
         if (this.estaGrabando) {
-          this.estaGrabando = false;
-          this.grabadoraAudioService.abortRecording();
+            this.estaGrabando = false;
+            this.grabadoraAudioService.abortRecording();
         }
-      }
+    }
     stopRecording() {
         if (this.estaGrabando) {
-          this.grabadoraAudioService.stopRecording();
-          this.estaGrabando = false;
+            this.grabadoraAudioService.stopRecording();
+            this.estaGrabando = false;
         }
-      }
+    }
     clearRecordedData() {
         this.blobUrl = null;
-      }
+    }
 
     enviarFormulario() {
         console.log(this.primerFormulario, this.segundoFormulario);
