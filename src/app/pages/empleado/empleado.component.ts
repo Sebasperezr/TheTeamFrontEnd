@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { GrabadoraAudioService } from '../../providers/grabadora-audio.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-empleado',
@@ -78,7 +80,24 @@ export class EmpleadoComponent implements OnInit {
      */
     imagenMente8 = './assets/images/mente8.png';
 
-    constructor(private constructorFormulario: FormBuilder) { }
+    estaGrabando = false;
+    tiempoGrabacion;
+    blobUrl;
+
+    constructor(private constructorFormulario: FormBuilder,
+        private grabadoraAudioService: GrabadoraAudioService, 
+        private sanitizer: DomSanitizer) {
+            
+        this.grabadoraAudioService.recordingFailed().subscribe(() => {
+        this.estaGrabando = false;
+        });
+        this.grabadoraAudioService.getRecordedTime().subscribe((time) => {
+        this.tiempoGrabacion = time;
+        });
+        this.grabadoraAudioService.getRecordedBlob().subscribe((data) => {
+        this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.blob));
+        });
+     }
 
     ngOnInit() {
         this.primerFormulario = this.constructorFormulario.group({
@@ -95,11 +114,45 @@ export class EmpleadoComponent implements OnInit {
             pregunta8: ['', Validators.required],
             pregunta9: ['', Validators.required]
         });
+
     }
 
     /**
      * Metodo para envio de formulario con los datos adquiridos de la encuesta y el archivo de audio
      */
+
+    startRecording() {
+        if (!this.estaGrabando) {
+          this.estaGrabando = true;
+          this.grabadoraAudioService.startRecording();
+          let n = 0;
+          const that = this;
+          window.setInterval(function() {
+            if (n === 120) {
+              that.grabadoraAudioService.stopRecording();
+              that.estaGrabando = false;
+            }
+            n++;
+          },
+          1000);
+        }
+      }
+    abortRecording() {
+        if (this.estaGrabando) {
+          this.estaGrabando = false;
+          this.grabadoraAudioService.abortRecording();
+        }
+      }
+    stopRecording() {
+        if (this.estaGrabando) {
+          this.grabadoraAudioService.stopRecording();
+          this.estaGrabando = false;
+        }
+      }
+    clearRecordedData() {
+        this.blobUrl = null;
+      }
+
     enviarFormulario() {
         console.log(this.primerFormulario, this.segundoFormulario);
     }

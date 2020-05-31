@@ -269,9 +269,13 @@
       </div>
       <label for="validatedCustomFile">Ó puedes grabarlo aquí mismo presionando el botón grabar</label>
       <div>
-        <button mat-mini-fab color="warn">
+        <button mat-mini-fab color="warn" *ngIf="!estaGrabando && !blobUrl" (click)="startRecording()">
           <mat-icon>microphone</mat-icon>
         </button>
+        <div *ngIf="estaGrabando && !blobUrl"> {{tiempoGrabacion}} </div>
+        <audio *ngIf="!estaGrabando && blobUrl"  controls>
+          <source [src]="blobUrl" type="audio/webm">
+        </audio>
       </div>
       <div>
         <button mat-button matStepperPrevious class="btn btn-primary">Anterior</button>&nbsp;
