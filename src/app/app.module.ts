@@ -18,6 +18,7 @@ import { PsicologoComponent } from './pages/psicologo/psicologo.component';
 import { GerenteComponent } from './pages/gerente/gerente.component';
 import { RespuestasComponent } from './pages/respuestas/respuestas.component';
 import { GrabadoraAudioService } from './providers/grabadora-audio.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { GrabadoraAudioService } from './providers/grabadora-audio.service';
         MatStepperModule,
         MatFormFieldModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ],
     providers: [ GrabadoraAudioService ],
     bootstrap: [AppComponent]
